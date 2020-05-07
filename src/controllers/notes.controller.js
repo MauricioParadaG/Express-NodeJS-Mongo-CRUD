@@ -12,7 +12,7 @@ notesController.createNewNote = async (req, res) => {
     const newNote = new Note({title: title, description: description});
     await newNote.save();
 
-    res.send('New note created');
+    res.redirect('/notes');
 };
 
 // Get All notes
@@ -31,8 +31,9 @@ notesController.updateNote = (req, res) => {
 };
 
 // Delete note
-notesController.deleteNote = (req, res) => {
-    res.send('Note Deleted');
+notesController.deleteNote = async (req, res) => {
+    await Note.findByIdAndDelete(req.params.id);
+    res.redirect('/notes');
 };
 
 
