@@ -16,8 +16,9 @@ notesController.createNewNote = async (req, res) => {
 };
 
 // Get All notes
-notesController.renderNotes = (req, res) => {
-    res.send('All Notes');
+notesController.renderNotes = async (req, res) => {
+    const notes = await Note.find().lean();
+    res.render('notes/all-notes', {notes});
 };
 
 // Edit note
