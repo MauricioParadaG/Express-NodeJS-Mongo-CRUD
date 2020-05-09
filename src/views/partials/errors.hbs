@@ -1,3 +1,14 @@
+{{!-- error comes from passport login authentication--}}
+{{#if error}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{error}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{{/if}}
+
+{{!-- errors comes from short passport in signup--}}
 {{#each errors}}
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
     {{text}}
