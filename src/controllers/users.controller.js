@@ -52,8 +52,9 @@ usersController.signin = passport.authenticate('local', {
 
 // Logout
 usersController.logout = (req, res) => {
-    
-    res.send('Logout');
+    req.logout();
+    req.flash('success_msg', 'You are now logged out');
+    res.redirect('/users/signin');
 };
 
 
